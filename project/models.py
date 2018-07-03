@@ -1,6 +1,6 @@
 from django.db import models
 from django.utils import timezone
-from django.conf.urls import reverse
+from django.core.urlresolvers import reverse
 
 
 class Project(models.Model):
