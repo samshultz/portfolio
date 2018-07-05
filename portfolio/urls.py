@@ -23,6 +23,7 @@ urlpatterns = [
     url(r'^api/', include(router.urls)),
     url(r'^api/', include(router.urls)),
     url(r'^api/', include(router.urls)),
+    url(r'', include('project.urls', namespace="projects")),
     url(r'^admin/', admin.site.urls),
 ]
 
