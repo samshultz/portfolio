@@ -8,7 +8,9 @@ import Work from './Work';
 import Modal from './Modal'
 import Client from './Client'
 import Contact from './Contact'
+
 class App extends Component {
+  
   render() {
     return (
       <div>

@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import './App.css';
-
+// import 'whatwg-fetch'
 class AboutInline extends Component {
+
+    
     render() {
+        const {skills} = this.props.skills
         return (
             <div className="about-section" id="about">
                 <div className="container">
@@ -36,41 +39,33 @@ class AboutInline extends Component {
                             </div>
                             <div className="tab2">
                                 <div className="col-md-10 about-left-w3layouts">
-                                    <h6>Web Design<span> 100% </span></h6>
+                                {skills.map((skill, index)=>
+                                    index/2 === 0 ? 
+                                        <div key={index}>
+                                    <h6>{skill.name}<span> {skill.expertise + "%"} </span></h6>
                                     <div className="progress">
-                                        <div className="progress-bar progress-bar-striped active" style={{ width: '100%' }}>
+                                        <div className="progress-bar progress-bar-striped active" style={{ width: skill.expertise + "%" }}>
                                         </div>
                                     </div>
-                                    <div className="mid-bar-agileits-w3layouts">
-                                        <h6>Photoshop<span> 90% </span></h6>
-                                        <div className="progress">
-                                            <div className="progress-bar progress-bar-striped active" style={{ width: '90%' }}>
-                                            </div>
-                                        </div>
+                                </div> : 
+                                <div className="mid-bar-agileits-w3layouts" key={index}>
+                                <h6>{skill.name}<span> {skill.expertise + "%"} </span></h6>
+                                <div className="progress">
+                                    <div className="progress-bar progress-bar-striped active" style={{ width: skill.expertise + "%" }}>
                                     </div>
-                                    <h6>Illustrator<span>80% </span></h6>
-                                    <div className="progress">
-                                        <div className="progress-bar progress-bar-striped active" style={{ width: '80%' }}>
-                                        </div>
-                                    </div>
-                                    <div className="mid-bar-agileits-w3layouts">
-                                        <h6>Wordpress<span>70% </span></h6>
-                                        <div className="progress">
-                                            <div className="progress-bar progress-bar-striped active" style={{ width: '70%' }}>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <h6>Jquery<span>75% </span></h6>
-                                    <div className="progress">
-                                        <div className="progress-bar progress-bar-striped active" style={{ width: '75%' }}>
-                                        </div>
-                                    </div>
+                                </div>
+                            </div>
+                            
+                                
+                                )}
+                                    
                                     <div className="pos-grid-agileinfo">
                                         <span className="fa fa-line-chart" aria-hidden="true" />
                                         <h5>Skills</h5>
                                     </div>
                                 </div>
                             </div>
+                            
                             <div className="tab3">
                                 <div className="col-md-10 about-left-w3layouts">
                                     <div className="about-info-w3-agileits">

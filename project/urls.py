@@ -3,5 +3,5 @@ from .views import HomeView
 
 
 urlpatterns = [
-    url(r'', HomeView.as_view(), name="index")
+    url(r'^home/$', HomeView.as_view(), name="index")
 ]
