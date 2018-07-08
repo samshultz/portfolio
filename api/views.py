@@ -3,16 +3,23 @@ from about.models import About
 from contact.models import Contact
 from project.models import Project
 from skills.models import Skill
+from education.models import Education
+from experience.models import Experience
+from services.models import Service
 from .serializers import (
-    AboutSeriazer,
+    AboutSerializer,
     ContactSerializer,
     ProjectSerializer,
-    SkillSerializer)
+    SkillSerializer,
+    EducationSerializer,
+    ExperienceSerializer,
+    ServiceSerializer)
 
 
 class AboutViewSet(viewsets.ModelViewSet):
     queryset = About.objects.all()
-    serializer_class = AboutSeriazer
+    serializer_class = AboutSerializer
+
 
 class ContactViewSet(viewsets.ModelViewSet):
     queryset = Contact.objects.all()
@@ -28,3 +35,17 @@ class SkillViewSet(viewsets.ModelViewSet):
     queryset = Skill.objects.all()
     serializer_class = SkillSerializer
 
+
+class EducationViewSet(viewsets.ModelViewSet):
+    queryset = Education.objects.all()
+    serializer_class = EducationSerializer
+
+
+class ExperienceViewSet(viewsets.ModelViewSet):
+    queryset = Experience.objects.all()
+    serializer_class = ExperienceSerializer
+
+
+class ServiceViewSet(viewsets.ModelViewSet):
+    queryset = Service.objects.all()
+    serializer_class = ServiceSerializer

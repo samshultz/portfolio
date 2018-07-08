@@ -5,7 +5,7 @@ class AboutInline extends Component {
 
     
     render() {
-        const {skills} = this.props.skills
+        const {skills, about, education, experience} = this.props.info
         return (
             <div className="about-section" id="about">
                 <div className="container">
@@ -22,17 +22,21 @@ class AboutInline extends Component {
                             <div className="tab1">
                                 <div className="col-md-10 about-left-w3layouts">
                                     <ul>
-                                        <li><span>Date of birth</span>: 31st March 1984</li>
-                                        <li><span>Language</span>: English, Dutch, French</li>
-                                        <li><span>Expert in</span>: Web development</li>
-                                        <li><span>Phone</span>: +011 222 3333</li>
-                                        <li><span>Email</span>: <a href="mailto:example@mail.com">mail@example.com</a></li>
-                                        <li><span>Address</span>: 25 Montée Saint-Barthélémy, France</li>
-                                        <li><span>Freelance</span>: Available</li>
+                                        {about.map((data, index)=> 
+                                        <div key={index}>
+                                        <li><span>Language</span>: {data.language}</li>
+                                        <li><span>Expert in</span>: {data.expert_in}</li>
+                                        <li><span>Phone</span>: {data.phone_no}</li>
+                                        <li><span>Email</span>: <a href={`mailto:${data.email}`}>{data.email}</a></li>
+                                        <li><span>Address</span>: {data.address}</li>
+                                        <li><span>Freelance</span>: {data.freelance ? "Available" : "Not Available"}</li>
+                                        </div>
+                                    )}
                                     </ul>
                                     <div className="pos-grid-agileinfo">
-                                        <img src={require('./images/about.jpg')} className="img-responsive" alt=
-                                            '' />
+                                    {about.map((data, index)=>
+                                        <img src={data.img} className="img-responsive" alt=
+                                            '' key={index} />)}
                                         <h5>About Me</h5>
                                     </div>
                                 </div>
@@ -40,7 +44,7 @@ class AboutInline extends Component {
                             <div className="tab2">
                                 <div className="col-md-10 about-left-w3layouts">
                                 {skills.map((skill, index)=>
-                                    index/2 === 0 ? 
+                                    index%2 === 0 ? 
                                         <div key={index}>
                                     <h6>{skill.name}<span> {skill.expertise + "%"} </span></h6>
                                     <div className="progress">
@@ -68,22 +72,22 @@ class AboutInline extends Component {
                             
                             <div className="tab3">
                                 <div className="col-md-10 about-left-w3layouts">
-                                    <div className="about-info-w3-agileits">
-                                        <h6>Master Of Visual Design<span>2010-2012</span></h6>
+                                {education.map((item,index)=>
+                                index%2 === 0 ?
+                                    <div className="about-info-w3-agileits" key={index}>
+                                        <h6>{item.title}<span>{new Date(item.date_started).getFullYear()}-{new Date(item.date_ended).getFullYear()}</span></h6>
                                         <div className="clearfix"> </div>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sed odio consequat, tristique elit sed, molestie nulla.
-                Mauris et quam leo.</p>
+                                        <p>{item.description}</p>
                                     </div>
-                                    <div className="about-info-w3-agileits mid-bar-agileits-w3layouts">
-                                        <h6>Master Of Designing<span>2010-2008</span></h6>
+                                    :
+                                    <div className="about-info-w3-agileits mid-bar-agileits-w3layouts" key={index}>
+                                        <h6>{item.title}<span>{new Date(item.date_started).getFullYear()}-{new Date(item.date_ended).getFullYear()}</span></h6>
                                         <div className="clearfix"> </div>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sed odio consequat, tristique elit sed.</p>
+                                        <p>{item.description}</p>
                                     </div>
-                                    <div className="about-info-w3-agileits">
-                                        <h6>Graduate in Designing<span>2008-2006</span></h6>
-                                        <div className="clearfix"> </div>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                    </div>
+                                    )}
+                                    
+                                    
                                     <div className="pos-grid-agileinfo">
                                         <span className="fa fa-graduation-cap" aria-hidden="true" />
                                         <h5>Education</h5>
@@ -92,22 +96,20 @@ class AboutInline extends Component {
                             </div>
                             <div className="tab4">
                                 <div className="col-md-10 about-left-w3layouts">
-                                    <div className="about-info-w3-agileits">
-                                        <h6>Graphic Designer, Web Designer<span>2017-</span></h6>
+                                {experience.map((item,index)=>
+                                index%2 === 0 ?
+                                    <div className="about-info-w3-agileits" key={index}>
+                                        <h6>{item.title}<span>{new Date(item.date_started).getFullYear()}-{new Date(item.date_ended).getFullYear()}</span></h6>
                                         <div className="clearfix"> </div>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                        <p>{item.description}</p>
                                     </div>
-                                    <div className="about-info-w3-agileits mid-bar-agileits-w3layouts">
-                                        <h6>Web Development<span>2017-2015</span></h6>
+                                    :
+                                    <div className="about-info-w3-agileits mid-bar-agileits-w3layouts" key={index}>
+                                        <h6>{item.title}<span>{new Date(item.date_started).getFullYear()}-{new Date(item.date_ended).getFullYear()}</span></h6>
                                         <div className="clearfix"> </div>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sed odio consequat, tristique elit sed, molestie nulla.
-                Mauris et quam leo.</p>
+                                        <p>{item.description}</p>
                                     </div>
-                                    <div className="about-info-w3-agileits">
-                                        <h6>Front-End Developer<span>2015-2012</span></h6>
-                                        <div className="clearfix"> </div>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sed odio consequat, tristique elit sed.</p>
-                                    </div>
+                                    )}
                                     <div className="pos-grid-agileinfo">
                                         <span className="fa fa-shield" aria-hidden="true" />
                                         <h5>Experience</h5>

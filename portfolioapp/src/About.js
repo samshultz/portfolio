@@ -7,7 +7,10 @@ class About extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      'skills': []
+      'skills': [],
+      'about': [],
+      'education': [],
+      'experience': []
     }
     
   }
@@ -28,13 +31,31 @@ class About extends Component {
     // set the state to the data returned
     // this.setState({ 'skills': data })
   }
+  setAbout() {
+    fetch('http://127.0.0.1:8000/api/about/')
+    .then(response => response.json())
+    .then(response => this.setState({ 'about': response }))
+  }
+  setEducation() {
+    fetch('http://127.0.0.1:8000/api/education/')
+    .then(response => response.json())
+    .then(response => this.setState({ 'education': response }))
+  }
+  setExperience() {
+    fetch('http://127.0.0.1:8000/api/experience/')
+    .then(response => response.json())
+    .then(response => this.setState({ 'experience': response }))
+  }
   componentDidMount() {
+    this.setAbout()
     this.setSkills();
+    this.setEducation()
+    this.setExperience()
   }
   render() {
     
     return (
-      <AboutInline skills={this.state}/>
+      <AboutInline info={this.state}/>
     );
   }
 }

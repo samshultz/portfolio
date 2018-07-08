@@ -32,6 +32,9 @@ INSTALLED_APPS = [
     'contact',
     'skills',
     'project',
+    'education',
+    'experience',
+    'services',
 
     # third party apps
     'rest_framework',
