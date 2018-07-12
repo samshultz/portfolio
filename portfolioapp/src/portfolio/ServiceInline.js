@@ -1,10 +1,9 @@
-import React, { Component } from 'react';
-import './App.css';
+import React from 'react';
 
 
-class ServiceInline extends Component {
-    render() {
-        let {services} = this.props.services
+const ServiceInline = (props) => {
+    
+        let {services} = props.services
         return (
             <div className="services-section" id="services">
                 <div className="container">
@@ -38,13 +37,13 @@ class ServiceInline extends Component {
                         
                     </div>
                     <div className="col-md-5 services-right">
-                        <img src={require('./images/trans.png')} alt=" " className="img-responsive" />
+                        <img src={require('../images/trans.png')} alt=" " className="img-responsive" />
                     </div>
                 </div>
             </div>
 
         );
     }
-}
+
 
 export default ServiceInline;

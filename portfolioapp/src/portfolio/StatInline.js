@@ -1,9 +1,8 @@
-import React, { Component } from 'react';
-import './App.css';
+import React from 'react';
 
 
-class StatInline extends Component {
-    render() {
+const StatInline = () =>{
+   
         return (
             <div className="stats">
                 <div className="container">
@@ -36,6 +35,5 @@ class StatInline extends Component {
 
         );
     }
-}
 
 export default StatInline;

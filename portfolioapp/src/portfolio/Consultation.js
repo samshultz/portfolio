@@ -1,16 +1,16 @@
-import React, { Component } from 'react';
-import './App.css';
+import React from 'react';
+
 import ConsultationInline from './ConsultationInline';
 
 
 
-class Stat extends Component {
-    render() {
+const Stat = () => {
+    
         return (
             <ConsultationInline />
 
         );
     }
-}
+
 
 export default Stat;

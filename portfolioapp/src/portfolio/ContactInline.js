@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import './App.css';
 
+import Alert from './Alert';
 
 class ContactInline extends Component {
   state = {}
@@ -11,7 +11,7 @@ class ContactInline extends Component {
   handleSubmit(event) {
     event.preventDefault()
     this.props.addContact(this.state)
-    // console.log(this.state)
+    event.target.reset()
   }
   render() {
     return (
@@ -20,6 +20,9 @@ class ContactInline extends Component {
           <div className="contact-form">
             <h4 className="title-top-w3">Get in touch<span>|</span></h4>
             <h5 className="title-main-w3ls">Contact Me</h5>
+
+            {this.props.success ? <Alert /> : ""}
+
             <form action="#" method="post" onSubmit={(event)=>this.handleSubmit(event)}>
               <div className="col-md-6 styled-input-w3-agile">
                 <input type="text" name="name" placeholder="Enter your name" required onChange={(event)=>this.inputChanged(event)}/>

@@ -1,15 +1,9 @@
-import React, { Component } from 'react';
-import './App.css';
+import React from 'react';
 
 
-
-class WorkInline extends Component {
-    state = {
-        contents: []
-    }
+const WorkInline = (props) => {
     
-    render() {
-        const {projects} = this.props.projects
+        const {projects} = props.projects
         
         return (
             <div>
@@ -23,13 +17,13 @@ class WorkInline extends Component {
                         {projects.map((project, index)=>
                         <div key={index}>
                             <div className="col-md-6 col-sm-6 col-xs-6 work1">
-                                <a href="" data-toggle="modal" data-target="#myModal3" onClick={(event)=>this.props.setModalContent(event, index)}>
+                                <a href="" data-toggle="modal" data-target="#myModal3" onClick={(event)=>props.setModalContent(event, index)}>
                                     <img src={project.img} alt=" " className="img-responsive" />
                                 </a>
                             </div>
                         </div>
                         )}
-                            <div className="clearfix"> </div>
+                            
                         </div>
                     </div>
                     
@@ -40,6 +34,6 @@ class WorkInline extends Component {
 
         );
     }
-}
+
 
 export default WorkInline;

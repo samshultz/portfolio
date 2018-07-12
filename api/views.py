@@ -27,7 +27,7 @@ class ContactViewSet(viewsets.ModelViewSet):
 
 
 class ProjectViewSet(viewsets.ModelViewSet):
-    queryset = Project.objects.all()
+    queryset = Project.objects.all()[:4]
     serializer_class = ProjectSerializer
 
 

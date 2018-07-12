@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import './App.css';
-import About from './About'
-import Stat from './Stat'
-import Service from './Service';
-import Consultation from './Consultation';
-import Work from './Work';
-import Client from './Client'
-import Contact from './Contact'
+import About from './portfolio/About'
+import Stat from './portfolio/Stat'
+import Service from './portfolio/Service';
+import Consultation from './portfolio/Consultation';
+import Work from './portfolio/Work';
+// import Client from './Client'
+import Contact from './portfolio/Contact'
 
 class App extends Component {
   
@@ -18,7 +18,6 @@ class App extends Component {
         <Service />
         <Consultation />
         <Work />
-        <Client />
         <Contact />
       </div>
     );

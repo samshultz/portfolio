@@ -26,7 +26,7 @@ router.register(r'experience', ExperienceViewSet, base_name='experience')
 router.register(r'services', ServiceViewSet, base_name='service')
 urlpatterns = [
     url(r'^api/', include(router.urls)),
-    url(r'', include('project.urls', namespace="projects")),
+    url(r'^', include('project.urls', namespace="projects")),
     url(r'^admin/', admin.site.urls),
 ]
 

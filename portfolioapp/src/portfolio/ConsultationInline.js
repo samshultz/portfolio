@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
-import './App.css';
+import React from 'react';
 
 
-class ConsultationInline extends Component {
-    render() {
+
+const ConsultationInline = () => {
+    
         return (
             <div className="free">
                 <div className="container">
@@ -17,6 +17,5 @@ class ConsultationInline extends Component {
 
         );
     }
-}
 
 export default ConsultationInline;
