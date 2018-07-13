@@ -5,7 +5,7 @@ export function fetchResource(apiUrl, lookupOptions = null) {
     } else {
         data = fetch(`http://127.0.0.1:8000${apiUrl}`).then(response => response.json())
     }
-    
+    // samtaiwo.pythonanywhere.com
     
     return data
 }
